@@ -9,15 +9,3 @@
 
     <a href="{{ path('article_index') }}">back to list</a>
 {% endblock %}
-
-{% block javascripts %}
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        const article = { 
-            'title' : 'Lorem ta mère', 
-            'content' : 'lorem ipsum ta grand mère'
-        }
-        axios.post('https://localhost:8000/ajax/articles/new', article)
-        .then(response => console.log(response.data))
-    </script>
-{% endblock %}

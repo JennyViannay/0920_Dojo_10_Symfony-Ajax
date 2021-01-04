@@ -35,10 +35,3 @@
 
     <a href="{{ path('article_new') }}" class="btn btn-primary">Create new</a>
 {% endblock %}
-{% block javascripts %}
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        axios.get('https://localhost:8000/ajax/articles/')
-        .then(response => console.log(response))
-    </script>
-{% endblock %}
