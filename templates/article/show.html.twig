@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="{{ path('article_index') }}" class="btn btn-primary">back to list</a>
+        <a href="{{ path('article_edit', {'id': article.id}) }}" class="btn btn-warning">edit</a>
+    </div>
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        //show
+        axios.get('https://localhost:8000/ajax/articles/1')
+        .then(response => console.log(response))
+
+        //delete
+        axios.delete('https://localhost:8000/ajax/articles/2')
+        .then(response => console.log(response))
+    </script>
+{% endblock %}
